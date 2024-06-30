@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Förening för Psykedelisk Terapi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --primary-color: #3a506b;
+    --secondary-color: #5bc0be;
+    --text-color: #0b132b;
+    --background-color: #f8f9fa;
+    --accent-color: #6fffe9;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin-left: 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hero {
+    background-image: url('/api/placeholder/1200/600');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(58, 80, 107, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.event-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-list li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.news-item {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.language-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.newsletter-signup {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.newsletter-signup h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.newsletter-signup form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-signup input[type="email"] {
+    width: 60%;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.resource-library {
+    margin-top: 2rem;
+}
+
+.resource-library ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resource-library li {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .language-toggle {
+        position: static;
+        margin-bottom: 1rem;
+    }
+
+    .newsletter-signup form {
+        flex-direction: column;
+    }
+
+    .newsletter-signup input[type="email"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-toggle">
+            <a href="#" onclick="toggleLanguage()">English</a>
+        </div>
+        <div class="header-content">
+            <div class="logo">FPT</div>
+            <nav>
+                <ul>
+                    <li><a href="#om-oss">Om oss</a></li>
+                    <li class="dropdown">
+                        <a href="#verksamhet">Verksamhet ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#utbildning">Utbildning</a>
+                            <a href="#forskning">Forskning</a>
+                            <a href="#paverkan">Påverkan</a>
+                        </div>
+                    </li>
+                    <li><a href="#evenemang">Evenemang</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#resurser">Resurser</a></li>
+                    <li><a href="#nyheter">Nyheter</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#bli-medlem" class="cta-button">Bli medlem</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Förening för Psykedelisk Terapi</h1>
+            <p>Sveriges ledande nätverk för främjandet av psykedelika-assisterad terapi, integration och skademinimering</p>
+            <a href="#om-oss" class="cta-button">Läs mer</a>
+        </div>
+    </section>
+    <main>
+        <section id="om-oss">
+            <h2 class="section-title">Om oss</h2>
+            <p>Förening för Psykedelisk Terapi är en partipolitiskt och religiöst obunden förening med säte i Stockholm. Vårt syfte är att sprida vederhäftig kunskap och främja forskning om psykedelika-assisterad terapi, psykedelisk integration och skademinimering, samt att bidra till etableringen och legitimeringen av en säker användning av dessa behandlingsformer i svensk hälso- och sjukvård.</p>
+        </section>
+        <section id="verksamhet">
+            <h2 class="section-title">Vår verksamhet</h2>
+            <div class="grid-container">
+                <div id="utbildning" class="card">
+                    <h3>Utbildning</h3>
+                    <p>Vi erbjuder möjligheter till fortbildning och utbildning inom psykedelika-assisterad terapi för legitimerad vårdpersonal.</p>
+                </div>
+                <div id="forskning" class="card">
+                    <h3>Forskning</h3>
+                    <p>Vi stödjer och främjar vetenskaplig forskning inom området psykedelika-assisterad terapi och dess effekter.</p>
+                </div>
+                <div id="paverkan" class="card">
+                    <h3>Påverkan</h3>
+                    <p>Vi arbetar för att öka medvetenheten och kunskapen om den terapeutiska användningen av psykedeliska substanser hos beslutsfattare och allmänheten.</p>
+                </div>
+            </div>
+        </section>
+        <section id="evenemang">
+            <h2 class="section-title">Kommande evenemang</h2>
+            <ul class="event-list">
+                <li>
+                    <h3>Webinarium: Introduktion till psykedelika-assisterad terapi</h3>
+                    <p>Datum: 15 juli 2024 | Tid: 18:00-20:00 | Online</p>
+                </li>
+                <li>
+                    <h3>Workshop: Etiska överväganden i psykedelisk terapi</h3>
+                    <p>Datum: 5-6 augusti 2024 | Plats: Stockholm</p>
+                </li>
+                <li>
+                    <h3>Årsmöte 2024</h3>
+                    <p>Datum: 20 september 2024 | Tid: 13:00-16:00 | Plats: Meddelas senare</p>
+                </li>
+            </ul>
+        </section>
+        <section id="faq">
+            <h2 class="section-title">Vanliga frågor (FAQ)</h2>
+            <div class="card">
+                <h3>Vad är psykedelika-assisterad terapi?</h3>
+                <p>Psykedelika-assisterad terapi är en behandlingsform där psykedeliska substanser används i kombination med psykoterapi för att behandla olika psykiska tillstånd.</p>
+            </div>
+            <div class="card">
+                <h3>Vilka kan bli medlemmar i föreningen?</h3>
+                <p>Medlemskap är öppet för legitimerad vårdpersonal, studenter inom vårdyrken, samt personer verksamma under hälso- och sjukvårdslagen.</p>
+            </div>
+            <div class="card">
+                <h3>Hur kan jag engagera mig i föreningens arbete?</h3>
+                <p>Det finns många sätt att engagera sig, såsom att delta i våra evenemang, bidra till forskningsprojekt, eller hjälpa till med informationsspridning.</p>
+            </div>
+        </section>
+        <section id="resurser" class="resource-library">
+            <h2 class="section-title">Resursbibliotek</h2>
+            <p>Här hittar du en samling av relevanta forskningsartiklar, rapporter och andra resurser inom området psykedelika-assisterad terapi.</p>
+            <ul>
+                <li><a href="#">Introduktion till psykedelika-assisterad terapi</a></li>
+                <li><a href="#">Etiska riktlinjer för psykedelisk terapi</a></li>
+                <li><a href="#">Senaste forskningsresultat inom MDMA-assisterad terapi för PTSD</a></li>
+                <li><a href="#">Lagstiftning och reglering av psykedeliska substanser i Sverige</a></li>
+            </ul>
+        </section>
+        <section id="nyheter">
+            <h2 class="section-title">Senaste nytt</h2>
+            <div class="news-item">
+                <h3>Ny studie visar lovande resultat för MDMA-assisterad terapi vid PTSD</h3>
+                <p>Publicerad: 2024-06-15</p>
+                <p>En ny svensk studie visar att MDMA-assisterad terapi kan vara effektiv för behandling av svår PTSD...</p>
+                <a href="#" class="cta-button">Läs mer</a>
+            </div>
+            <div class="news-item">
+                <h3>FPT deltar i internationell konferens om psykedelisk medicin</h3>
+                <p>Publicerad: 2024-05-30</p>
+                <p>Föreningen för Psykedelisk Terapi representerade Sverige vid den årliga konferensen...</p>
+                <a href="#" class="cta-button">Läs mer</a>
+            </div>
+        </section>
+        <section id="kontakt">
+            <h2 class="section-title">Kontakta oss</h2>
+            <p>Har du frågor eller vill veta mer om vår verksamhet? Kontakta oss gärna via e-post eller telefon.</p>
+            <p>E-post: info@foreningpsykedeliskterapi.se</p>
+            <p>Telefon: 08-123 45 67</p>
+        </section>
+        <section id="newsletter" class="newsletter-signup">
+            <h2>Prenumerera på vårt nyhetsbrev</h2>
+            <form>
+                <input type="email" placeholder="Din e-postadress" required>
+                <button type="submit" class="cta-button">Prenumerera</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Förening för Psykedelisk Terapi. Alla rättigheter förbehållna.</p>
+        <p><a href="#medlemsportal">Medlemsportal</a> | <a href="#integritetspolicy">Integritetspolicy</a> | <a href="#stadgar">Stadgar</a></p>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
+    </footer>
+    <script>
+        function toggleLanguage() {
+            // This function would handle language switching
+            alert('Language toggle functionality to be implemented');
+        }
+    </script>
+</body>
+</html>
